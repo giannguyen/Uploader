@@ -5,7 +5,6 @@ import com.example.Uploader.model.Image;
 import com.example.Uploader.repository.ImageRepository;
 import com.example.Uploader.utils.StringUtils;
 import com.google.gson.Gson;
-import lombok.extern.java.Log;
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
@@ -20,17 +19,17 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.logging.Logger;
 
 @RestController
-@Log
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class ImageController {
 
     private static final Gson gson = new Gson();
+    private static final Logger log = Logger.getLogger(ImageController.class.getName());
 
     @Autowired
     private ImageRepository imageRepository;
